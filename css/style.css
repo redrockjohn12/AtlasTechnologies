@@ -102,6 +102,22 @@ textarea {
     object-fit: contain;
 }
 
+
+.logo {
+    width: 235px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.logo img {
+    width: 235px;
+    height: 60px;
+    object-fit: contain;
+    display: block;
+}
+
 .main-nav {
     display: flex;
     align-items: center;
