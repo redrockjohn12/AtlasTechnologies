@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Content-Security-Policy"
+          content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self'; form-action 'self' https://formspree.io; object-src 'none'; base-uri 'self';">
     <meta name="google-site-verification" content="_0sqSyhZ2YF_POgPcsuFuH_tbYLFVhEA-kToQ1MyREI" />
 
     <title>Atlas Technologies Eswatini | Software, AI & Business Systems</title>
@@ -580,10 +583,10 @@
               required></textarea>
 
     <input type="text"
-           name="_gotcha"
+           class="honeypot" name="_gotcha"
            tabindex="-1"
            autocomplete="off"
-           style="position:absolute;left:-9999px;">
+          >
 
     <input type="hidden"
            name="_subject"
@@ -657,25 +660,8 @@
 </footer>
 
 
-<script>
 
-const menuToggle = document.getElementById("menu-toggle");
-const nav = document.getElementById("main-nav");
 
-menuToggle.addEventListener("click", () => {
-    nav.classList.toggle("active");
-});
-
-document.querySelectorAll("#main-nav a").forEach(link => {
-    link.addEventListener("click", () => {
-        nav.classList.remove("active");
-    });
-});
-
-document.getElementById("year").textContent =
-    new Date().getFullYear();
-
-</script>
-
+    <script src="js/script.js" defer></script>
 </body>
 </html>

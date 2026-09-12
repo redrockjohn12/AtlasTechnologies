@@ -1,57 +1,21 @@
-// Atlas Technologies
-// Main website functionality
+"use strict";
 
-const menuToggle = document.getElementById("menuToggle");
-const navigation = document.getElementById("navigation");
+const menuToggle = document.getElementById("menu-toggle");
+const nav = document.getElementById("main-nav");
+const year = document.getElementById("year");
 
-
-// Mobile navigation
-menuToggle.addEventListener("click", () => {
-    navigation.classList.toggle("active");
-});
-
-
-// Close mobile menu after clicking a link
-const navigationLinks = navigation.querySelectorAll("a");
-
-navigationLinks.forEach(link => {
-    link.addEventListener("click", () => {
-        navigation.classList.remove("active");
+if (menuToggle && nav) {
+    menuToggle.addEventListener("click", () => {
+        nav.classList.toggle("active");
     });
-});
 
-
-// Contact form
-const contactForm = document.getElementById("contactForm");
-
-contactForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-
-    alert(
-        "Thank you for contacting Atlas Technologies! " +
-        "Our project team will get back to you soon."
-    );
-
-    contactForm.reset();
-});
-
-
-// Simple reveal animation
-const sections = document.querySelectorAll(".section");
-
-const observer = new IntersectionObserver(
-    (entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("visible");
-            }
+    nav.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+            nav.classList.remove("active");
         });
-    },
-    {
-        threshold: 0.12
-    }
-);
+    });
+}
 
-sections.forEach((section) => {
-    observer.observe(section);
-});
+if (year) {
+    year.textContent = new Date().getFullYear();
+}
