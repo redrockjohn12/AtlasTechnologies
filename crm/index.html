@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atlas Technologies CRM</title>
+</head>
+<body>
+    <h1>Atlas Technologies CRM</h1>
+    <p>Customer Management</p>
+
+    <section>
+        <h2>Customers</h2>
+        <p>Total customers: <strong id="customer-count">0</strong></p>
+    </section>
+
+    <section>
+        <h2>Add Customer</h2>
+        <form id="customer-form">
+            <input type="text" id="name" placeholder="Customer name" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="tel" id="phone" placeholder="Phone">
+            <button type="submit">Add Customer</button>
+        </form>
+    </section>
+
+    <section>
+        <h2>Customer List</h2>
+        <div id="customer-list">
+            <p>No customers yet.</p>
+        </div>
+    </section>
+    <script src="app.js"></script>
+</body>
+</html>
