@@ -189,3 +189,53 @@ if (noteForm) {
 }
 
 renderNotes();
+
+const QUOTES_KEY = "atlas_crm_quotes";
+
+const quoteForm = document.getElementById("quote-form");
+const quoteList = document.getElementById("quote-list");
+const quoteCount = document.getElementById("quote-count");
+
+let quotes = JSON.parse(localStorage.getItem(QUOTES_KEY) || "[]");
+
+function renderQuotes() {
+    if (!quoteCount || !quoteList) return;
+
+    quoteCount.textContent = quotes.length;
+
+    if (quotes.length === 0) {
+        quoteList.innerHTML = "<p>No quotes yet.</p>";
+        return;
+    }
+
+    quoteList.innerHTML = quotes.map((quote) => `
+        <div class="customer-item">
+            <strong>${quote.client}</strong><br>
+            Service: ${quote.service}<br>
+            Amount: SZL ${Number(quote.amount).toFixed(2)}<br>
+            Status: <strong>${quote.status}</strong>
+        </div>
+    `).join("");
+}
+
+if (quoteForm) {
+    quoteForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const quote = {
+            id: Date.now(),
+            client: document.getElementById("quote-client").value.trim(),
+            service: document.getElementById("quote-service").value.trim(),
+            amount: document.getElementById("quote-amount").value,
+            status: document.getElementById("quote-status").value
+        };
+
+        quotes.push(quote);
+        localStorage.setItem(QUOTES_KEY, JSON.stringify(quotes));
+
+        quoteForm.reset();
+        renderQuotes();
+    });
+}
+
+renderQuotes();

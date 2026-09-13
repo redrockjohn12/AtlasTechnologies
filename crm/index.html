@@ -30,6 +30,29 @@
     </section>
 
     <section class="crm-card">
+        <h2>Quotes</h2>
+        <p>Total quotes: <strong id="quote-count">0</strong></p>
+
+        <form id="quote-form">
+            <input type="text" id="quote-client" placeholder="Client name" required>
+            <input type="text" id="quote-service" placeholder="Service" required>
+            <input type="number" id="quote-amount" placeholder="Amount (SZL)" min="0" step="0.01" required>
+            <select id="quote-status" required>
+                <option value="">Quote status</option>
+                <option value="Draft">Draft</option>
+                <option value="Sent">Sent</option>
+                <option value="Accepted">Accepted</option>
+                <option value="Rejected">Rejected</option>
+            </select>
+            <button type="submit">Add Quote</button>
+        </form>
+
+        <div id="quote-list">
+            <p>No quotes yet.</p>
+        </div>
+    </section>
+
+    <section class="crm-card">
         <h2>Customer Notes & Communication</h2>
         <p>Keep important customer conversations, updates and follow-ups in one place.</p>
 
