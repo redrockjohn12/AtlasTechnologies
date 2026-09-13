@@ -30,6 +30,23 @@
     </section>
 
     <section class="crm-card">
+        <h2>Leads & Enquiries</h2>
+        <p>Total leads: <strong id="lead-count">0</strong></p>
+
+        <form id="lead-form">
+            <input type="text" id="lead-name" placeholder="Lead name" required>
+            <input type="email" id="lead-email" placeholder="Email" required>
+            <input type="tel" id="lead-phone" placeholder="Phone">
+            <input type="text" id="lead-service" placeholder="Service interested in" required>
+            <button type="submit">Add Lead</button>
+        </form>
+
+        <div id="lead-list">
+            <p>No leads yet.</p>
+        </div>
+    </section>
+
+    <section class="crm-card">
         <h2>Customer List</h2>
         <div id="customer-list">
             <p>No customers yet.</p>

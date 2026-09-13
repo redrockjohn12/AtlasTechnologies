@@ -44,3 +44,53 @@ form.addEventListener("submit", (event) => {
 });
 
 renderCustomers();
+
+const LEADS_KEY = "atlas_crm_leads";
+
+const leadForm = document.getElementById("lead-form");
+const leadList = document.getElementById("lead-list");
+const leadCount = document.getElementById("lead-count");
+
+let leads = JSON.parse(localStorage.getItem(LEADS_KEY) || "[]");
+
+function renderLeads() {
+    if (!leadCount || !leadList) return;
+
+    leadCount.textContent = leads.length;
+
+    if (leads.length === 0) {
+        leadList.innerHTML = "<p>No leads yet.</p>";
+        return;
+    }
+
+    leadList.innerHTML = leads.map((lead) => `
+        <div class="customer-item">
+            <strong>${lead.name}</strong><br>
+            ${lead.email}<br>
+            ${lead.phone || "No phone number"}<br>
+            <strong>Service:</strong> ${lead.service}
+        </div>
+    `).join("");
+}
+
+if (leadForm) {
+    leadForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const lead = {
+            id: Date.now(),
+            name: document.getElementById("lead-name").value.trim(),
+            email: document.getElementById("lead-email").value.trim(),
+            phone: document.getElementById("lead-phone").value.trim(),
+            service: document.getElementById("lead-service").value.trim()
+        };
+
+        leads.push(lead);
+        localStorage.setItem(LEADS_KEY, JSON.stringify(leads));
+
+        leadForm.reset();
+        renderLeads();
+    });
+}
+
+renderLeads();

@@ -92,3 +92,32 @@ body {
         padding: 18px;
     }
 }
+
+#lead-form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+#lead-form input,
+#lead-form button {
+    width: 100%;
+    padding: 13px;
+    border-radius: 8px;
+    border: 1px solid #d6dce5;
+    font-size: 15px;
+}
+
+#lead-form button {
+    background: #0b1220;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+@media (max-width: 700px) {
+    #lead-form {
+        grid-template-columns: 1fr;
+    }
+}
