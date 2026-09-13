@@ -239,3 +239,55 @@ if (quoteForm) {
 }
 
 renderQuotes();
+
+const INVOICES_KEY = "atlas_crm_invoices";
+
+const invoiceForm = document.getElementById("invoice-form");
+const invoiceList = document.getElementById("invoice-list");
+const invoiceCount = document.getElementById("invoice-count");
+
+let invoices = JSON.parse(localStorage.getItem(INVOICES_KEY) || "[]");
+
+function renderInvoices() {
+    if (!invoiceCount || !invoiceList) return;
+
+    invoiceCount.textContent = invoices.length;
+
+    if (invoices.length === 0) {
+        invoiceList.innerHTML = "<p>No invoices yet.</p>";
+        return;
+    }
+
+    invoiceList.innerHTML = invoices.map((invoice) => `
+        <div class="customer-item">
+            <strong>${invoice.number}</strong><br>
+            Client: ${invoice.client}<br>
+            Service: ${invoice.service}<br>
+            Amount: SZL ${Number(invoice.amount).toFixed(2)}<br>
+            Status: <strong>${invoice.status}</strong>
+        </div>
+    `).join("");
+}
+
+if (invoiceForm) {
+    invoiceForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const invoice = {
+            id: Date.now(),
+            number: document.getElementById("invoice-number").value.trim(),
+            client: document.getElementById("invoice-client").value.trim(),
+            service: document.getElementById("invoice-service").value.trim(),
+            amount: document.getElementById("invoice-amount").value,
+            status: document.getElementById("invoice-status").value
+        };
+
+        invoices.push(invoice);
+        localStorage.setItem(INVOICES_KEY, JSON.stringify(invoices));
+
+        invoiceForm.reset();
+        renderInvoices();
+    });
+}
+
+renderInvoices();

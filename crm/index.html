@@ -53,6 +53,30 @@
     </section>
 
     <section class="crm-card">
+        <section class="crm-card">
+            <h2>Invoices</h2>
+            <p>Total invoices: <strong id="invoice-count">0</strong></p>
+
+            <form id="invoice-form">
+                <input type="text" id="invoice-number" placeholder="Invoice number" required>
+                <input type="text" id="invoice-client" placeholder="Client name" required>
+                <input type="text" id="invoice-service" placeholder="Service" required>
+                <input type="number" id="invoice-amount" placeholder="Amount (SZL)" min="0" step="0.01" required>
+                <select id="invoice-status" required>
+                    <option value="">Invoice status</option>
+                    <option value="Draft">Draft</option>
+                    <option value="Sent">Sent</option>
+                    <option value="Paid">Paid</option>
+                    <option value="Overdue">Overdue</option>
+                </select>
+                <button type="submit">Add Invoice</button>
+            </form>
+
+            <div id="invoice-list">
+                <p>No invoices yet.</p>
+            </div>
+        </section>
+
         <h2>Customer Notes & Communication</h2>
         <p>Keep important customer conversations, updates and follow-ups in one place.</p>
 
