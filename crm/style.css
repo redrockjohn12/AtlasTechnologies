@@ -244,3 +244,43 @@ body {
         grid-template-columns: 1fr;
     }
 }
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 14px;
+    margin-top: 20px;
+}
+
+.dashboard-stat {
+    background: #f4f7fb;
+    border: 1px solid #e5e9ef;
+    border-radius: 12px;
+    padding: 18px;
+    text-align: center;
+}
+
+.dashboard-stat span {
+    display: block;
+    font-size: 14px;
+    color: #667085;
+    margin-bottom: 8px;
+}
+
+.dashboard-stat strong {
+    display: block;
+    font-size: 30px;
+    color: #0b1220;
+}
+
+@media (max-width: 900px) {
+    .dashboard-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .dashboard-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

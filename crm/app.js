@@ -291,3 +291,19 @@ if (invoiceForm) {
 }
 
 renderInvoices();
+
+function updateDashboard() {
+    const dashboardCustomers = document.getElementById("dashboard-customers");
+    const dashboardLeads = document.getElementById("dashboard-leads");
+    const dashboardProjects = document.getElementById("dashboard-projects");
+    const dashboardQuotes = document.getElementById("dashboard-quotes");
+    const dashboardInvoices = document.getElementById("dashboard-invoices");
+
+    if (dashboardCustomers) dashboardCustomers.textContent = customers.length;
+    if (dashboardLeads) dashboardLeads.textContent = leads.length;
+    if (dashboardProjects) dashboardProjects.textContent = projects.length;
+    if (dashboardQuotes) dashboardQuotes.textContent = quotes.length;
+    if (dashboardInvoices) dashboardInvoices.textContent = invoices.length;
+}
+
+updateDashboard();
