@@ -30,6 +30,29 @@
     </section>
 
     <section class="crm-card">
+        <h2>Projects</h2>
+        <p>Total projects: <strong id="project-count">0</strong></p>
+
+        <form id="project-form">
+            <input type="text" id="project-name" placeholder="Project name" required>
+            <input type="text" id="project-client" placeholder="Client name" required>
+            <input type="text" id="project-service" placeholder="Service" required>
+            <select id="project-status" required>
+                <option value="">Project status</option>
+                <option value="Planning">Planning</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Completed">Completed</option>
+                <option value="On Hold">On Hold</option>
+            </select>
+            <button type="submit">Add Project</button>
+        </form>
+
+        <div id="project-list">
+            <p>No projects yet.</p>
+        </div>
+    </section>
+
+    <section class="crm-card">
         <h2>Leads & Enquiries</h2>
         <p>Total leads: <strong id="lead-count">0</strong></p>
 

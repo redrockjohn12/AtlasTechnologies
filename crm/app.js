@@ -94,3 +94,53 @@ if (leadForm) {
 }
 
 renderLeads();
+
+const PROJECTS_KEY = "atlas_crm_projects";
+
+const projectForm = document.getElementById("project-form");
+const projectList = document.getElementById("project-list");
+const projectCount = document.getElementById("project-count");
+
+let projects = JSON.parse(localStorage.getItem(PROJECTS_KEY) || "[]");
+
+function renderProjects() {
+    if (!projectCount || !projectList) return;
+
+    projectCount.textContent = projects.length;
+
+    if (projects.length === 0) {
+        projectList.innerHTML = "<p>No projects yet.</p>";
+        return;
+    }
+
+    projectList.innerHTML = projects.map((project) => `
+        <div class="customer-item">
+            <strong>${project.name}</strong><br>
+            Client: ${project.client}<br>
+            Service: ${project.service}<br>
+            Status: <strong>${project.status}</strong>
+        </div>
+    `).join("");
+}
+
+if (projectForm) {
+    projectForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const project = {
+            id: Date.now(),
+            name: document.getElementById("project-name").value.trim(),
+            client: document.getElementById("project-client").value.trim(),
+            service: document.getElementById("project-service").value.trim(),
+            status: document.getElementById("project-status").value
+        };
+
+        projects.push(project);
+        localStorage.setItem(PROJECTS_KEY, JSON.stringify(projects));
+
+        projectForm.reset();
+        renderProjects();
+    });
+}
+
+renderProjects();
