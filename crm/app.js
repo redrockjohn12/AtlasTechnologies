@@ -144,3 +144,48 @@ if (projectForm) {
 }
 
 renderProjects();
+
+const NOTES_KEY = "atlas_crm_notes";
+
+const noteForm = document.getElementById("note-form");
+const noteList = document.getElementById("note-list");
+
+let notes = JSON.parse(localStorage.getItem(NOTES_KEY) || "[]");
+
+function renderNotes() {
+    if (!noteList) return;
+
+    if (notes.length === 0) {
+        noteList.innerHTML = "<p>No notes yet.</p>";
+        return;
+    }
+
+    noteList.innerHTML = notes.map((note) => `
+        <div class="customer-item">
+            <strong>${note.customer}</strong><br>
+            <p>${note.text}</p>
+            <small>${new Date(note.createdAt).toLocaleString()}</small>
+        </div>
+    `).join("");
+}
+
+if (noteForm) {
+    noteForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const note = {
+            id: Date.now(),
+            customer: document.getElementById("note-customer").value.trim(),
+            text: document.getElementById("note-text").value.trim(),
+            createdAt: new Date().toISOString()
+        };
+
+        notes.unshift(note);
+        localStorage.setItem(NOTES_KEY, JSON.stringify(notes));
+
+        noteForm.reset();
+        renderNotes();
+    });
+}
+
+renderNotes();
