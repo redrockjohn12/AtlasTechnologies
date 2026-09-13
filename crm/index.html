@@ -4,17 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Atlas Technologies CRM</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Atlas Technologies CRM</h1>
-    <p>Customer Management</p>
+    <header class="crm-header">
+        <h1>Atlas Technologies CRM</h1>
+        <p>Customer Management System</p>
+    </header>
 
-    <section>
+    <main class="crm-container">
+    <section class="crm-card">
         <h2>Customers</h2>
-        <p>Total customers: <strong id="customer-count">0</strong></p>
+        <div class="customer-count" id="customer-count">0</div>
+        <p>Total customers</p>
     </section>
 
-    <section>
+    <section class="crm-card">
         <h2>Add Customer</h2>
         <form id="customer-form">
             <input type="text" id="name" placeholder="Customer name" required>
@@ -24,7 +29,7 @@
         </form>
     </section>
 
-    <section>
+    <section class="crm-card">
         <h2>Customer List</h2>
         <div id="customer-list">
             <p>No customers yet.</p>

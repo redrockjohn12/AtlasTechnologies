@@ -1,0 +1,94 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f7fb;
+    color: #172033;
+}
+
+.crm-header {
+    background: #0b1220;
+    color: white;
+    padding: 22px;
+}
+
+.crm-header h1 {
+    margin: 0;
+    font-size: 26px;
+}
+
+.crm-header p {
+    margin: 6px 0 0;
+    opacity: 0.75;
+}
+
+.crm-container {
+    width: min(1100px, 92%);
+    margin: 30px auto;
+}
+
+.crm-card {
+    background: white;
+    border-radius: 14px;
+    padding: 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+}
+
+.crm-card h2 {
+    margin-top: 0;
+}
+
+.customer-count {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+#customer-form {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+#customer-form input,
+#customer-form button {
+    width: 100%;
+    padding: 13px;
+    border-radius: 8px;
+    border: 1px solid #d6dce5;
+    font-size: 15px;
+}
+
+#customer-form button {
+    background: #0b1220;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.customer-item {
+    padding: 16px 0;
+    border-bottom: 1px solid #e5e9ef;
+}
+
+.customer-item:last-child {
+    border-bottom: none;
+}
+
+@media (max-width: 700px) {
+    .crm-container {
+        width: 94%;
+        margin: 20px auto;
+    }
+
+    #customer-form {
+        grid-template-columns: 1fr;
+    }
+
+    .crm-card {
+        padding: 18px;
+    }
+}
