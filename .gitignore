@@ -1,0 +1,4 @@
+node_modules/
+crm/app.backup.js
+.env
+.env.local

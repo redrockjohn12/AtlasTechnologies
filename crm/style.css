@@ -284,3 +284,47 @@ body {
         grid-template-columns: repeat(2, 1fr);
     }
 }
+
+.login-card {
+    max-width: 500px;
+    margin: 50px auto;
+}
+
+#login-form {
+    display: grid;
+    gap: 14px;
+    margin-top: 20px;
+}
+
+#login-form input,
+#login-form button {
+    width: 100%;
+    padding: 14px;
+    border-radius: 8px;
+    border: 1px solid #d6dce5;
+    font-size: 15px;
+}
+
+#login-form button {
+    background: #0b1220;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+#login-form button:hover {
+    opacity: 0.9;
+}
+
+#login-message {
+    min-height: 20px;
+    margin: 0;
+    color: #b42318;
+}
+
+@media (max-width: 700px) {
+    .login-card {
+        margin: 25px auto;
+    }
+}
