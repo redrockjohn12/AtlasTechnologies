@@ -1,0 +1,9 @@
+{
+  "name": "Atlas Technologies",
+  "short_name": "Atlas",
+  "start_url": "/AtlasTechnologies/",
+  "display": "standalone",
+  "background_color": "#06111f",
+  "theme_color": "#23b7ff",
+  "icons": []
+}

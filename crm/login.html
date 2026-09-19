@@ -1,52 +1,39 @@
-cat > crm/login.html <<'EOF'
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atlas Technologies CRM Login</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self'; img-src 'self' data:; connect-src 'self' https://*.supabase.co; form-action 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none';">
+  <meta name="theme-color" content="#06111f">
+  <title>Atlas CRM | Login</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+<body class="auth-page">
+  <main class="auth-shell">
+    <section class="auth-card">
+      <a class="auth-brand" href="../"><img src="../images/atlas-logo.png" alt="Atlas Technologies"></a>
+      <span class="eyebrow">PRIVATE BUSINESS SYSTEM</span>
+      <h1>Atlas CRM</h1>
+      <p class="auth-subtitle">Sign in to manage leads, customers and projects.</p>
 
-<body>
+      <div class="setup-warning" id="setup-warning" hidden>Supabase is not configured yet. Run the Atlas setup and enter your Supabase project URL and publishable/anon key.</div>
 
-<header class="crm-header">
-    <h1>Atlas Technologies</h1>
-    <p>Secure CRM Login</p>
-</header>
+      <form id="login-form" class="auth-form">
+        <label>Email<input type="email" id="email" autocomplete="username" required></label>
+        <label>Password<input type="password" id="password" autocomplete="current-password" required minlength="6"></label>
+        <button class="btn btn-primary" type="submit">Sign In <span>→</span></button>
+        <button class="text-button" id="forgot-password" type="button">Forgot your password?</button>
+        <p class="form-status" id="login-status" role="status" aria-live="polite"></p>
+      </form>
 
-<main class="crm-container">
-    <section class="crm-card login-card">
-        <h2>CRM Login</h2>
-        <p>Sign in to access the Atlas Technologies business dashboard.</p>
-
-        <form id="login-form">
-            <input
-                type="email"
-                id="login-email"
-                placeholder="Email address"
-                autocomplete="email"
-                required
-            >
-
-            <input
-                type="password"
-                id="login-password"
-                placeholder="Password"
-                autocomplete="current-password"
-                required
-            >
-
-            <button type="submit">Sign In</button>
-
-            <p id="login-message" role="alert"></p>
-        </form>
+      <div class="auth-note"><strong>Owner setup:</strong> Create CRM users inside Supabase Auth. Do not publish a service-role or secret key in this site.</div>
+      <a class="back-link" href="../">← Back to Atlas Technologies</a>
     </section>
-</main>
-
-<script src="supabase.js"></script>
-<script src="login.js"></script>
-
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+  <script src="config.js" defer></script>
+  <script src="supabase.js" defer></script>
+  <script src="login.js" defer></script>
 </body>
 </html>
-EOF

@@ -1,27 +1,33 @@
 "use strict";
 
-const SUPABASE_URL = "https://cogamcqicefmyedjfvnc.supabase.co";
-const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_JXgkKk5GHMtGQgQFmMO_3Q_NUQQ0qYg";
+document.addEventListener("DOMContentLoaded", async () => {
+  const client = window.atlasSupabase;
+  if (!client) {
+    window.location.replace("login.html");
+    return;
+  }
 
-const supabase = window.supabase.createClient(
-    SUPABASE_URL,
-    SUPABASE_PUBLISHABLE_KEY
-);
+  const { data, error } = await client.auth.getSession();
+  if (error || !data.session) {
+    window.location.replace("login.html");
+    return;
+  }
 
-async function protectCRM() {
-    const {
-        data: { session },
-        error
-    } = await supabase.auth.getSession();
+  window.ATLAS_SESSION = data.session;
+  const emailElement = document.getElementById("user-email");
+  if (emailElement) emailElement.textContent = data.session.user.email || "Signed in";
 
-    if (error || !session) {
-        window.location.replace("./login.html");
-        return;
-    }
+  const logout = document.getElementById("logout-button");
+  if (logout) {
+    logout.addEventListener("click", async () => {
+      logout.disabled = true;
+      await client.auth.signOut();
+      window.location.replace("login.html");
+    });
+  }
 
-    const script = document.createElement("script");
-    script.src = "app.js";
-    document.body.appendChild(script);
-}
-
-protectCRM();
+  client.auth.onAuthStateChange((_event, session) => {
+    if (!session) window.location.replace("login.html");
+    else window.ATLAS_SESSION = session;
+  });
+});

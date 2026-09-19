@@ -1,322 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Atlas Technologies CRM</title>
-
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self'; img-src 'self' data:; connect-src 'self' https://*.supabase.co; form-action 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none';">
+  <meta name="theme-color" content="#06111f">
+  <title>Atlas CRM | Dashboard</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+<body class="crm-page">
+  <header class="crm-topbar">
+    <div class="crm-brand"><img src="../images/atlas-logo.png" alt="Atlas Technologies"><span>CRM</span></div>
+    <div class="crm-user"><span id="user-email">Loading…</span><button class="ghost-button" id="logout-button">Sign out</button></div>
+  </header>
 
-<body>
+  <div class="crm-shell">
+    <aside class="sidebar">
+      <button class="side-link active" data-view="overview">▦ <span>Overview</span></button>
+      <button class="side-link" data-view="leads">◎ <span>Leads</span></button>
+      <button class="side-link" data-view="customers">◫ <span>Customers</span></button>
+      <button class="side-link" data-view="projects">◆ <span>Projects</span></button>
+      <a class="side-link side-external" href="../">← <span>Public site</span></a>
+    </aside>
 
-<header class="crm-header">
-    <h1>Atlas Technologies</h1>
-    <p>Business Management CRM</p>
-</header>
-
-<main class="crm-container">
-
-    <!-- BUSINESS DASHBOARD -->
-    <section class="crm-card dashboard-card">
-        <h2>Business Dashboard</h2>
-
-        <div class="dashboard-grid">
-
-            <div class="dashboard-stat">
-                <span>Customers</span>
-                <strong id="dashboard-customers">0</strong>
-            </div>
-
-            <div class="dashboard-stat">
-                <span>Leads</span>
-                <strong id="dashboard-leads">0</strong>
-            </div>
-
-            <div class="dashboard-stat">
-                <span>Projects</span>
-                <strong id="dashboard-projects">0</strong>
-            </div>
-
-            <div class="dashboard-stat">
-                <span>Quotes</span>
-                <strong id="dashboard-quotes">0</strong>
-            </div>
-
-            <div class="dashboard-stat">
-                <span>Invoices</span>
-                <strong id="dashboard-invoices">0</strong>
-            </div>
-
+    <main class="crm-main" id="crm-app">
+      <section class="view active" data-panel="overview">
+        <div class="page-heading"><div><span class="eyebrow">ATLAS CRM</span><h1>Business overview</h1><p>Track enquiries, customers and active projects.</p></div><button class="btn btn-primary" data-jump="leads">+ New Lead</button></div>
+        <div class="stats-grid">
+          <article class="stat-card"><span>Total leads</span><strong id="stat-leads">0</strong></article>
+          <article class="stat-card"><span>New leads</span><strong id="stat-new-leads">0</strong></article>
+          <article class="stat-card"><span>Customers</span><strong id="stat-customers">0</strong></article>
+          <article class="stat-card"><span>Active projects</span><strong id="stat-projects">0</strong></article>
+          <article class="stat-card wide"><span>Pipeline value</span><strong id="stat-value">R0</strong></article>
         </div>
-    </section>
+        <div class="panel-grid">
+          <section class="panel"><div class="panel-head"><div><span class="eyebrow">RECENT</span><h2>Latest leads</h2></div><button class="text-button" data-jump="leads">View all →</button></div><div id="recent-leads" class="feed-list"></div></section>
+          <section class="panel"><div class="panel-head"><div><span class="eyebrow">QUICK ACTIONS</span><h2>Keep the pipeline moving.</h2></div></div><div class="quick-actions"><button data-jump="leads">Capture a lead</button><button data-jump="customers">Add a customer</button><button data-jump="projects">Create a project</button></div></section>
+        </div>
+      </section>
 
+      <section class="view" data-panel="leads">
+        <div class="page-heading"><div><span class="eyebrow">SALES PIPELINE</span><h1>Leads</h1><p>Every enquiry from the Atlas website can become a follow-up opportunity.</p></div></div>
+        <div class="panel form-panel"><div class="panel-head"><div><span class="eyebrow">CAPTURE</span><h2 id="lead-form-title">Add a lead</h2></div></div>
+          <form id="lead-crm-form" class="data-form">
+            <input type="hidden" id="lead-id">
+            <div class="form-row"><label>Name<input id="crm-lead-name" required maxlength="120"></label><label>Email<input id="crm-lead-email" type="email" required maxlength="160"></label></div>
+            <div class="form-row"><label>Phone<input id="crm-lead-phone" maxlength="40"></label><label>Company<input id="crm-lead-company" maxlength="160"></label></div>
+            <div class="form-row"><label>Service<select id="crm-lead-service"><option>Web Development</option><option>Mobile Applications</option><option>AI & Automation</option><option>Custom Software</option><option>CRM & Sales Systems</option><option>Business Intelligence</option><option>Other</option></select></label><label>Status<select id="crm-lead-status"><option value="new">New</option><option value="contacted">Contacted</option><option value="qualified">Qualified</option><option value="proposal">Proposal</option><option value="won">Won</option><option value="lost">Lost</option></select></label></div>
+            <label>Subject<input id="crm-lead-subject" maxlength="200"></label><label>Message / notes<textarea id="crm-lead-message" rows="4" maxlength="4000"></textarea></label>
+            <div class="form-actions"><button class="btn btn-primary" type="submit">Save Lead</button><button class="ghost-button" type="button" id="lead-cancel" hidden>Cancel edit</button></div><p class="form-status" id="lead-status" role="status"></p>
+          </form>
+        </div>
+        <div class="panel"><div class="table-toolbar"><div><span class="eyebrow">ALL LEADS</span><h2>Lead register</h2></div><input id="lead-search" class="search-input" placeholder="Search leads…"></div><div class="table-wrap"><table><thead><tr><th>Name</th><th>Company</th><th>Service</th><th>Status</th><th>Created</th><th></th></tr></thead><tbody id="leads-table"></tbody></table></div></div>
+      </section>
 
-    <!-- CUSTOMERS -->
-    <section class="crm-card">
-        <h2>Customers</h2>
+      <section class="view" data-panel="customers">
+        <div class="page-heading"><div><span class="eyebrow">CUSTOMER BASE</span><h1>Customers</h1><p>Keep customer information ready for sales, delivery and follow-up.</p></div></div>
+        <div class="panel form-panel"><div class="panel-head"><div><span class="eyebrow">CUSTOMER RECORD</span><h2 id="customer-form-title">Add a customer</h2></div></div>
+          <form id="customer-form" class="data-form">
+            <input type="hidden" id="customer-id">
+            <div class="form-row"><label>Name<input id="customer-name" required maxlength="120"></label><label>Email<input id="customer-email" type="email" maxlength="160"></label></div>
+            <div class="form-row"><label>Phone<input id="customer-phone" maxlength="40"></label><label>Company<input id="customer-company" maxlength="160"></label></div>
+            <div class="form-row"><label>Status<select id="customer-status"><option value="active">Active</option><option value="inactive">Inactive</option></select></label><label>Notes<input id="customer-notes" maxlength="500"></label></div>
+            <div class="form-actions"><button class="btn btn-primary" type="submit">Save Customer</button><button class="ghost-button" type="button" id="customer-cancel" hidden>Cancel edit</button></div><p class="form-status" id="customer-status-message" role="status"></p>
+          </form>
+        </div>
+        <div class="panel"><div class="table-toolbar"><div><span class="eyebrow">CUSTOMER REGISTER</span><h2>Customers</h2></div><input id="customer-search" class="search-input" placeholder="Search customers…"></div><div class="table-wrap"><table><thead><tr><th>Name</th><th>Company</th><th>Email</th><th>Status</th><th>Added</th><th></th></tr></thead><tbody id="customer-list"></tbody></table></div></div>
+      </section>
 
-        <form id="customer-form">
+      <section class="view" data-panel="projects">
+        <div class="page-heading"><div><span class="eyebrow">DELIVERY</span><h1>Projects</h1><p>Track active work, deadlines and project value.</p></div></div>
+        <div class="panel form-panel"><div class="panel-head"><div><span class="eyebrow">PROJECT RECORD</span><h2 id="project-form-title">Add a project</h2></div></div>
+          <form id="project-form" class="data-form">
+            <input type="hidden" id="project-id">
+            <div class="form-row"><label>Project name<input id="project-name" required maxlength="160"></label><label>Customer<select id="project-customer"><option value="">No customer linked</option></select></label></div>
+            <div class="form-row"><label>Service<select id="project-service"><option>Web Development</option><option>Mobile Applications</option><option>AI & Automation</option><option>Custom Software</option><option>CRM & Sales Systems</option><option>Business Intelligence</option><option>Other</option></select></label><label>Status<select id="project-status"><option value="planning">Planning</option><option value="active">Active</option><option value="review">Review</option><option value="completed">Completed</option><option value="paused">Paused</option></select></label></div>
+            <div class="form-row"><label>Value (ZAR)<input id="project-value" type="number" min="0" step="0.01" value="0"></label><label>Due date<input id="project-due" type="date"></label></div>
+            <label>Notes<textarea id="project-notes" rows="4" maxlength="4000"></textarea></label>
+            <div class="form-actions"><button class="btn btn-primary" type="submit">Save Project</button><button class="ghost-button" type="button" id="project-cancel" hidden>Cancel edit</button></div><p class="form-status" id="project-status-message" role="status"></p>
+          </form>
+        </div>
+        <div class="panel"><div class="table-toolbar"><div><span class="eyebrow">PROJECT REGISTER</span><h2>Projects</h2></div><input id="project-search" class="search-input" placeholder="Search projects…"></div><div class="table-wrap"><table><thead><tr><th>Project</th><th>Customer</th><th>Status</th><th>Value</th><th>Due</th><th></th></tr></thead><tbody id="project-list"></tbody></table></div></div>
+      </section>
+    </main>
+  </div>
 
-            <input
-                type="text"
-                id="customer-name"
-                placeholder="Customer name"
-                required
-            >
-
-            <input
-                type="email"
-                id="customer-email"
-                placeholder="Customer email"
-                required
-            >
-
-            <input
-                type="tel"
-                id="customer-phone"
-                placeholder="Phone number"
-            >
-
-            <button type="submit">Add Customer</button>
-
-        </form>
-
-        <div id="customer-list"></div>
-    </section>
-
-
-    <!-- LEADS & ENQUIRIES -->
-    <section class="crm-card">
-        <h2>Leads & Enquiries</h2>
-
-        <form id="lead-form">
-
-            <input
-                type="text"
-                id="lead-name"
-                placeholder="Lead name"
-                required
-            >
-
-            <input
-                type="email"
-                id="lead-email"
-                placeholder="Lead email"
-                required
-            >
-
-            <input
-                type="tel"
-                id="lead-phone"
-                placeholder="Phone number"
-            >
-
-            <select id="lead-service" required>
-                <option value="">Select service</option>
-                <option value="Software Development">
-                    Software Development
-                </option>
-                <option value="Mobile Applications">
-                    Mobile Applications
-                </option>
-                <option value="AI & Automation">
-                    AI & Automation
-                </option>
-                <option value="Web Development">
-                    Web Development
-                </option>
-                <option value="Digital Systems">
-                    Digital Systems
-                </option>
-                <option value="Other">
-                    Other
-                </option>
-            </select>
-
-            <button type="submit">Add Lead</button>
-
-        </form>
-
-        <div id="lead-list"></div>
-    </section>
-
-
-    <!-- PROJECTS -->
-    <section class="crm-card">
-        <h2>Projects</h2>
-
-        <form id="project-form">
-
-            <input
-                type="text"
-                id="project-name"
-                placeholder="Project name"
-                required
-            >
-
-            <input
-                type="text"
-                id="project-client"
-                placeholder="Client"
-                required
-            >
-
-            <input
-                type="text"
-                id="project-service"
-                placeholder="Service"
-                required
-            >
-
-            <select id="project-status" required>
-                <option value="">Select status</option>
-                <option value="Planning">Planning</option>
-                <option value="In Progress">In Progress</option>
-                <option value="Completed">Completed</option>
-                <option value="On Hold">On Hold</option>
-            </select>
-
-            <button type="submit">Add Project</button>
-
-        </form>
-
-        <div id="project-list"></div>
-    </section>
-
-
-    <!-- QUOTES -->
-    <section class="crm-card">
-        <h2>Quotes</h2>
-
-        <form id="quote-form">
-
-            <input
-                type="text"
-                id="quote-client"
-                placeholder="Client"
-                required
-            >
-
-            <input
-                type="text"
-                id="quote-service"
-                placeholder="Service"
-                required
-            >
-
-            <input
-                type="number"
-                id="quote-amount"
-                placeholder="Amount"
-                step="0.01"
-                min="0"
-                required
-            >
-
-            <select id="quote-status" required>
-                <option value="">Select status</option>
-                <option value="Draft">Draft</option>
-                <option value="Sent">Sent</option>
-                <option value="Accepted">Accepted</option>
-                <option value="Rejected">Rejected</option>
-            </select>
-
-            <button type="submit">Add Quote</button>
-
-        </form>
-
-        <div id="quote-list"></div>
-    </section>
-
-
-    <!-- INVOICES -->
-    <section class="crm-card">
-        <h2>Invoices</h2>
-
-        <form id="invoice-form">
-
-            <input
-                type="text"
-                id="invoice-number"
-                placeholder="Invoice number"
-                required
-            >
-
-            <input
-                type="text"
-                id="invoice-client"
-                placeholder="Client"
-                required
-            >
-
-            <input
-                type="text"
-                id="invoice-service"
-                placeholder="Service"
-                required
-            >
-
-            <input
-                type="number"
-                id="invoice-amount"
-                placeholder="Amount"
-                step="0.01"
-                min="0"
-                required
-            >
-
-            <select id="invoice-status" required>
-                <option value="">Select status</option>
-                <option value="Draft">Draft</option>
-                <option value="Sent">Sent</option>
-                <option value="Paid">Paid</option>
-                <option value="Overdue">Overdue</option>
-            </select>
-
-            <button type="submit">Add Invoice</button>
-
-        </form>
-
-        <div id="invoice-list"></div>
-    </section>
-
-
-    <!-- CUSTOMER NOTES & COMMUNICATION -->
-    <section class="crm-card">
-        <h2>Customer Notes & Communication</h2>
-
-        <form id="note-form">
-
-            <input
-                type="text"
-                id="note-customer"
-                placeholder="Customer"
-                required
-            >
-
-            <textarea
-                id="note-text"
-                placeholder="Enter customer note or communication..."
-                required
-            ></textarea>
-
-            <button type="submit">Add Note</button>
-
-        </form>
-
-        <div id="note-list"></div>
-    </section>
-
-</main>
-
-
-<!-- Supabase library -->
-<script src="supabase.js"></script>
-
-<!-- Authentication protection -->
-<script src="auth-guard.js"></script>
-
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+  <script src="config.js" defer></script>
+  <script src="supabase.js" defer></script>
+  <script src="auth-guard.js" defer></script>
+  <script src="app.js" defer></script>
 </body>
 </html>
