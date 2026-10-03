@@ -1,0 +1,109 @@
+"use strict";
+
+document.addEventListener("DOMContentLoaded", () => {
+  const menuButton = document.querySelector(".menu-toggle");
+  const nav = document.querySelector(".main-nav");
+
+  if (menuButton && nav) {
+    menuButton.addEventListener("click", () => {
+      const open = nav.classList.toggle("open");
+      menuButton.setAttribute("aria-expanded", String(open));
+    });
+
+    nav.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        nav.classList.remove("open");
+        menuButton.setAttribute("aria-expanded", "false");
+      });
+    });
+  }
+
+  const revealItems = document.querySelectorAll(".reveal");
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add("visible");
+      observer.unobserve(entry.target);
+    });
+  }, { threshold: 0.12 });
+
+  revealItems.forEach((item, index) => {
+    item.style.transitionDelay = `${Math.min(index * 45, 360)}ms`;
+    revealObserver.observe(item);
+  });
+
+  const form = document.getElementById("project-form");
+  const status = document.getElementById("form-status");
+
+  if (form && status) {
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      const config = window.ATLAS_SUPABASE_CONFIG;
+      if (!config || !config.url || !config.key) {
+        status.textContent = "Project enquiry system is being configured. Please email info@atlastech.co.sz.";
+        return;
+      }
+
+      const data = Object.fromEntries(new FormData(form).entries());
+      status.textContent = "Sending your enquiry...";
+
+      try {
+        const response = await fetch(`${config.url}/rest/v1/leads`, {
+          method: "POST",
+          headers: {
+            apikey: config.key,
+            Authorization: `Bearer ${config.key}`,
+            "Content-Type": "application/json",
+            Prefer: "return=minimal"
+          },
+          body: JSON.stringify({
+            name: data.name.trim(),
+            email: data.email.trim(),
+            phone: data.phone.trim(),
+            company: data.company.trim(),
+            service: data.service,
+            budget: data.budget,
+            subject: data.subject.trim(),
+            message: data.message.trim(),
+            source: "website",
+            status: "new"
+          })
+        });
+
+        if (!response.ok) {
+          throw new Error("Unable to submit enquiry.");
+        }
+
+        form.reset();
+        status.textContent = "Enquiry received. Atlas Technologies will contact you shortly.";
+      } catch (error) {
+        console.error(error);
+        status.textContent = "We could not send the enquiry right now. Please email info@atlastech.co.sz.";
+      }
+    });
+  }
+});
+
+
+/* Compact Atlas header while scrolling */
+(function initAtlasScrollHeader(){
+  const header = document.querySelector(".site-header");
+  if (!header) return;
+
+  let ticking = false;
+
+  function updateHeader(){
+    header.classList.toggle("is-scrolled", window.scrollY > 45);
+    ticking = false;
+  }
+
+  window.addEventListener("scroll", function(){
+    if (!ticking) {
+      window.requestAnimationFrame(updateHeader);
+      ticking = true;
+    }
+  }, {passive:true});
+
+  updateHeader();
+})();

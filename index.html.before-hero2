@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Atlas Technologies builds modern websites, mobile applications, custom software, AI automation and connected business systems.">
+  <meta name="theme-color" content="#030914">
+  <title>Atlas Technologies | Technology That Moves Business Forward</title>
+  <link rel="icon" href="images/atlas-logo.png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="page-glow page-glow-one"></div>
+  <div class="page-glow page-glow-two"></div>
+
+  <header class="site-header">
+    <div class="nav-shell">
+      <a class="brand" href="#home" aria-label="Atlas Technologies home">
+        <img src="images/atlas-logo.png" alt="Atlas Technologies logo">
+      </a>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <a class="active" href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#solutions">Solutions</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <a class="header-cta" href="#contact">Start a Project <span>↗</span></a>
+
+      <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-grid"></div>
+      <div class="hero-content reveal">
+        <div class="eyebrow"><span></span> ATLAS TECHNOLOGIES</div>
+        <h1>We Build Technology<br><strong>That Moves Business Forward.</strong></h1>
+        <p class="hero-copy">
+          We design powerful digital products that make businesses faster, smarter and easier to run —
+          from professional websites and mobile apps to custom software, AI automation and connected systems.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#contact">Start a Project <span>→</span></a>
+          <a class="btn btn-ghost" href="#portfolio">Explore Our Work</a>
+        </div>
+
+        <div class="hero-trust">
+          <div><span class="mini-icon">⌘</span><span>Custom Software</span></div>
+          <div><span class="mini-icon">▣</span><span>Mobile Apps</span></div>
+          <div><span class="mini-icon">✦</span><span>AI & Automation</span></div>
+          <div><span class="mini-icon">◎</span><span>Business Systems</span></div>
+        </div>
+      </div>
+
+      <div class="hero-visual atlas-hero-image">
+        <img src="images/hero-earth.png"
+             alt="Atlas Technologies digital Earth"
+             class="hero-earth-image">
+      </div>
+    </section>
+
+    <section class="atlas-intro">
+      <div class="atlas-intro-inner">
+        <span class="eyebrow">ATLAS TECHNOLOGIES</span>
+        <h2>Technology Built to <strong>Move Business Forward.</strong></h2>
+        <p>
+          Atlas Technologies develops modern software, mobile applications,
+          AI solutions and digital systems that help businesses operate,
+          connect and grow in a digital world.
+        </p>
+
+        <div class="atlas-intro-grid">
+          <div>
+            <span>01</span>
+            <h3>Modern Software</h3>
+            <p>Reliable software designed around real business needs.</p>
+          </div>
+          <div>
+            <span>02</span>
+            <h3>Mobile Applications</h3>
+            <p>Connected mobile experiences built for today's customers.</p>
+          </div>
+          <div>
+            <span>03</span>
+            <h3>AI & Automation</h3>
+            <p>Intelligent systems that reduce repetitive work and improve efficiency.</p>
+          </div>
+          <div>
+            <span>04</span>
+            <h3>Digital Systems</h3>
+            <p>Scalable technology foundations for growing organizations.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section services-section" id="services">
+      <div class="section-heading reveal">
+        <div>
+          <div class="eyebrow"><span></span> WHAT WE DO</div>
+          <h2>Technology services built around <strong>business outcomes.</strong></h2>
+        </div>
+        <p>Choose one focused service or combine several into a complete digital solution.</p>
+      </div>
+
+      <div class="service-grid">
+        <article class="service-card reveal">
+          <div class="service-number">01</div>
+          <div class="service-icon">&lt;/&gt;</div>
+          <h3>Web Development</h3>
+          <p>Fast, responsive websites and web applications that turn visitors into customers.</p>
+          <a href="#contact">Build a website <span>→</span></a>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-number">02</div>
+          <div class="service-icon">APP</div>
+          <h3>Mobile Applications</h3>
+          <p>Modern Android and mobile experiences that connect customers, teams, services and data.</p>
+          <a href="#contact">Build a mobile app <span>→</span></a>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-number">03</div>
+          <div class="service-icon">AI</div>
+          <h3>AI & Automation</h3>
+          <p>Automate repetitive work, support teams and create smarter workflows with practical AI.</p>
+          <a href="#contact">Automate a process <span>→</span></a>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-number">04</div>
+          <div class="service-icon">SYS</div>
+          <h3>Custom Software</h3>
+          <p>Purpose-built software for operations, bookings, stock, finance and internal business tools.</p>
+          <a href="#contact">Build a system <span>→</span></a>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-number">05</div>
+          <div class="service-icon">CRM</div>
+          <h3>Business Systems</h3>
+          <p>CRM, dashboards and connected workflows that keep information organized and decisions moving.</p>
+          <a href="#contact">Connect your business <span>→</span></a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section solutions-section" id="solutions">
+      <div class="solution-panel reveal">
+        <div class="solution-copy">
+          <div class="eyebrow"><span></span> BUILT FOR REAL BUSINESSES</div>
+          <h2>From the first idea to a <strong>working digital system.</strong></h2>
+          <p>
+            Atlas Technologies brings design, software, automation and business thinking together.
+            We focus on technology that solves a real problem and gives your business room to grow.
+          </p>
+          <div class="solution-points">
+            <div><b>01</b><span>Understand the problem</span></div>
+            <div><b>02</b><span>Design the right solution</span></div>
+            <div><b>03</b><span>Build and connect the system</span></div>
+            <div><b>04</b><span>Launch, improve and support</span></div>
+          </div>
+        </div>
+        <div class="solution-visual">
+          <div class="dashboard-orb">
+            <span class="dash-ring"></span>
+            <span class="dash-core">A</span>
+            <span class="dash-line dash-line-one"></span>
+            <span class="dash-line dash-line-two"></span>
+            <span class="dash-line dash-line-three"></span>
+          </div>
+          <div class="floating-card card-a">SMART<br><strong>AUTOMATION</strong></div>
+          <div class="floating-card card-b">CONNECTED<br><strong>SYSTEMS</strong></div>
+          <div class="floating-card card-c">DIGITAL<br><strong>GROWTH</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section portfolio-section" id="portfolio">
+      <div class="section-heading reveal">
+        <div>
+          <div class="eyebrow"><span></span> FEATURED WORK</div>
+          <h2>Digital products made to <strong>work.</strong></h2>
+        </div>
+        <p>Selected concepts and solutions across software, mobile, analytics and automation.</p>
+      </div>
+
+      <div class="portfolio-grid">
+        <article class="project-card project-large reveal">
+          <div class="project-art project-skin"><span>LASS</span><b>SKIN CARE</b></div>
+          <div class="project-info"><span>Mobile App</span><h3>Lass Skin Care</h3><p>Customer bookings, product discovery and a modern mobile experience.</p></div>
+        </article>
+        <article class="project-card reveal">
+          <div class="project-art project-evo"><span>EVO</span><b>AI ASSISTANT</b></div>
+          <div class="project-info"><span>AI Solution</span><h3>EVO AI Assistant</h3><p>An intelligent assistant concept built for productivity and support.</p></div>
+        </article>
+        <article class="project-card reveal">
+          <div class="project-art project-dashboard"><span>DATA</span><b>DASHBOARD</b></div>
+          <div class="project-info"><span>Web App</span><h3>Business Dashboard</h3><p>Decision-ready analytics presented in one connected workspace.</p></div>
+        </article>
+        <article class="project-card reveal">
+          <div class="project-art project-store"><span>SHOP</span><b>ONLINE</b></div>
+          <div class="project-info"><span>Web + Mobile</span><h3>E-Commerce Platform</h3><p>A complete online experience with products, customers and order workflows.</p></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section about-section" id="about">
+      <div class="about-copy reveal">
+        <div class="eyebrow"><span></span> ABOUT ATLAS</div>
+        <h2>Technology should make business <strong>simpler, faster and more connected.</strong></h2>
+        <p>
+          Atlas Technologies is a software and digital-solutions company based in
+          <strong>South Africa, Gauteng, Centurion</strong>, serving businesses in South Africa and beyond.
+        </p>
+        <p>
+          We bring together software development, mobile technology, AI, automation, websites,
+          data and business systems to solve practical problems.
+        </p>
+        <div class="about-values">
+          <div><b>Business-first</b><span>We start with the problem your business needs solved.</span></div>
+          <div><b>Modern stack</b><span>Web, mobile, cloud, AI, automation and data.</span></div>
+          <div><b>Built to grow</b><span>Solutions are designed to evolve as your business changes.</span></div>
+          <div><b>Human support</b><span>Clear communication from discovery through delivery.</span></div>
+        </div>
+      </div>
+
+      <div class="about-stats reveal">
+        <div class="stat"><strong>10+</strong><span>Project concepts & builds</span></div>
+        <div class="stat"><strong>24/7</strong><span>Digital systems mindset</span></div>
+        <div class="stat"><strong>1</strong><span>Goal: make your business work better</span></div>
+      </div>
+    </section>
+
+    <section class="section faq-section">
+      <div class="section-heading reveal">
+        <div>
+          <div class="eyebrow"><span></span> FAQ</div>
+          <h2>Questions businesses <strong>usually ask.</strong></h2>
+        </div>
+      </div>
+      <div class="faq-grid">
+        <details class="faq reveal"><summary>Do you build custom systems?</summary><p>Yes. We can design and build software around your actual workflow instead of forcing your business into a generic system.</p></details>
+        <details class="faq reveal"><summary>Can you improve an existing website or system?</summary><p>Yes. Atlas can redesign, modernize, connect or extend an existing digital product.</p></details>
+        <details class="faq reveal"><summary>Do you work with small businesses?</summary><p>Yes. Solutions can start focused and grow with the business.</p></details>
+        <details class="faq reveal"><summary>How do I get a price?</summary><p>Tell us what you want to build, improve or automate. We review the requirement and come back with a clear scope and quote.</p></details>
+      </div>
+    </section>
+
+    <section class="cta-section reveal">
+      <div>
+        <div class="eyebrow"><span></span> READY TO BUILD?</div>
+        <h2>Bring us the problem. <strong>We'll help shape the solution.</strong></h2>
+      </div>
+      <a class="btn btn-primary" href="#contact">Start a Project <span>→</span></a>
+    </section>
+
+    <section class="section contact-section" id="contact">
+      <div class="contact-copy reveal">
+        <div class="eyebrow"><span></span> START A PROJECT</div>
+        <h2>Let's Build Something <strong>Great.</strong></h2>
+        <p>Tell us what you need, what is not working today and what success should look like. We'll review the enquiry and contact you.</p>
+
+        <div class="contact-list">
+          <a href="mailto:info@atlastech.co.sz" class="contact-item">
+            <span class="contact-icon">✉</span><span><small>EMAIL</small><b>info@atlastech.co.sz</b></span>
+          </a>
+          <a href="tel:+26878482172" class="contact-item">
+            <span class="contact-icon">☎</span><span><small>PHONE</small><b>+268 7848 2172</b></span>
+          </a>
+          <a href="https://wa.me/26878482172" class="contact-item" target="_blank" rel="noopener">
+            <span class="contact-icon">◉</span><span><small>WHATSAPP</small><b>+268 7848 2172</b></span>
+          </a>
+          <div class="contact-item">
+            <span class="contact-icon">⌖</span><span><small>LOCATION</small><b>South Africa, Gauteng, Centurion</b></span>
+          </div>
+        </div>
+      </div>
+
+      <form class="project-form reveal" id="project-form">
+        <div class="form-heading"><span>PROJECT ENQUIRY</span><b>Tell us what you want to build.</b></div>
+
+        <div class="form-grid">
+          <label>Full name<input type="text" name="name" id="name" required autocomplete="name" placeholder="Your full name"></label>
+          <label>Email<input type="email" name="email" id="email" required autocomplete="email" placeholder="you@company.com"></label>
+          <label>Phone / WhatsApp<input type="tel" name="phone" id="phone" placeholder="+27..."></label>
+          <label>Company<input type="text" name="company" id="company" placeholder="Company name"></label>
+          <label>Service<select name="service" id="service"><option value="">Select a service</option><option>Web Development</option><option>Mobile Applications</option><option>AI & Automation</option><option>Custom Software</option><option>Business Systems / CRM</option></select></label>
+          <label>Budget<select name="budget" id="budget"><option value="">Prefer to discuss</option><option>Under R5,000</option><option>R5,000 – R15,000</option><option>R15,000 – R50,000</option><option>R50,000+</option></select></label>
+        </div>
+
+        <label>Subject<input type="text" name="subject" id="subject" placeholder="What are you looking to build?"></label>
+        <label>Project details<textarea name="message" id="message" rows="5" required placeholder="Tell us what you need built, improved or automated."></textarea></label>
+
+        <button class="btn btn-primary form-submit" type="submit">Send Project Enquiry <span>→</span></button>
+        <div class="form-status" id="form-status" aria-live="polite"></div>
+        <small class="form-note">Your details are used only to respond to your project enquiry. Please do not submit passwords, payment-card details or other confidential credentials.</small>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-brand">
+      <img src="images/atlas-logo.png" alt="Atlas Technologies">
+      <p>Software • Mobile • AI • Automation • Business Systems</p>
+    </div>
+    <div class="footer-links">
+      <a href="#services">Services</a><a href="#portfolio">Portfolio</a><a href="#about">About</a><a href="#contact">Contact</a><a href="crm/">CRM</a>
+    </div>
+    <div class="footer-location">South Africa, Gauteng, Centurion<br><a href="mailto:info@atlastech.co.sz">info@atlastech.co.sz</a></div>
+    <div class="footer-bottom"><span>© 2026 Atlas Technologies. All rights reserved.</span><span>INNOVATE • BUILD • GROW</span></div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
