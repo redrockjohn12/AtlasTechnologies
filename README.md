@@ -8,7 +8,7 @@ https://atlastech.com/
 
 ## Contact
 
-- Email: info@atlastech.co.sz
+- Email: info@atlastech.com
 - Phone / WhatsApp: +268 7848 2172
 - Location: South Africa, Gauteng, Centurion
 
