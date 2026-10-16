@@ -4,7 +4,7 @@ Atlas Technologies is a technology company focused on software, web, mobile appl
 
 ## Website
 
-https://redrockjohn12.github.io/AtlasTechnologies/
+https://atlastech.com/
 
 ## Contact
 

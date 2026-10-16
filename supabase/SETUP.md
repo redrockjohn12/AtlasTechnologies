@@ -20,11 +20,11 @@ The login page intentionally has no public sign-up button because the CRM is an 
 
 For this GitHub Pages project, use:
 
-https://redrockjohn12.github.io/AtlasTechnologies/
+https://atlastech.com/
 
 Add the CRM login URL to the Auth redirect URLs as well:
 
-https://redrockjohn12.github.io/AtlasTechnologies/crm/login.html
+https://atlastech.com/crm/login.html
 
 ## 5. Test the flow
 
