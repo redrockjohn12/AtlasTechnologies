@@ -427,3 +427,388 @@
     }
 }
 
+
+/* ATLAS MOBILE HERO SPACING REFINEMENT */
+@media (max-width: 760px) {
+    .hero {
+        min-height: 0 !important;
+        padding: 104px 0 26px !important;
+    }
+
+    .hero-layout {
+        min-height: 0 !important;
+        display: grid !important;
+        grid-template-columns: minmax(0, 1fr) !important;
+        gap: 0 !important;
+        align-content: start !important;
+    }
+
+    .hero-copy {
+        width: 100% !important;
+        max-width: none !important;
+        z-index: 5 !important;
+    }
+
+    .hero h1 {
+        max-width: 100% !important;
+        font-size: clamp(42px, 11.5vw, 58px) !important;
+        line-height: 1 !important;
+        letter-spacing: -0.055em !important;
+        margin: 18px 0 16px !important;
+        overflow-wrap: normal !important;
+    }
+
+    .hero-description {
+        max-width: 100% !important;
+        font-size: 13px !important;
+        line-height: 1.65 !important;
+    }
+
+    .hero-actions {
+        gap: 9px !important;
+        margin: 22px 0 18px !important;
+    }
+
+    .hero-actions .btn {
+        min-height: 46px !important;
+        padding: 0 13px !important;
+        font-size: 11px !important;
+    }
+
+    .hero-micro {
+        gap: 8px !important;
+        font-size: 7px !important;
+        letter-spacing: .12em !important;
+        margin-bottom: 0 !important;
+    }
+
+    .hero-visual {
+        position: relative !important;
+        top: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        width: calc(100% + 28px) !important;
+        height: auto !important;
+        min-height: 0 !important;
+        aspect-ratio: 1.35 / 1 !important;
+        margin: -4px -14px -12px !important;
+        padding: 0 !important;
+        display: block !important;
+        transform: none !important;
+        opacity: 1 !important;
+        overflow: hidden !important;
+        -webkit-mask-image: linear-gradient(
+            to bottom,
+            transparent 0%,
+            #000 10%,
+            #000 78%,
+            transparent 100%
+        ) !important;
+        mask-image: linear-gradient(
+            to bottom,
+            transparent 0%,
+            #000 10%,
+            #000 78%,
+            transparent 100%
+        ) !important;
+    }
+
+    .hero-image-frame {
+        position: absolute !important;
+        inset: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        display: block !important;
+        overflow: visible !important;
+    }
+
+    .hero-visual::before {
+        top: -8% !important;
+        right: -7% !important;
+        width: 114% !important;
+        height: 116% !important;
+        background-position: center center !important;
+        background-size: contain !important;
+        -webkit-mask-image: radial-gradient(
+            ellipse 70% 70% at 53% 50%,
+            #000 45%,
+            rgba(0,0,0,.85) 65%,
+            rgba(0,0,0,.35) 83%,
+            transparent 100%
+        ) !important;
+        mask-image: radial-gradient(
+            ellipse 70% 70% at 53% 50%,
+            #000 45%,
+            rgba(0,0,0,.85) 65%,
+            rgba(0,0,0,.35) 83%,
+            transparent 100%
+        ) !important;
+    }
+
+    .hero-visual::after {
+        width: 76% !important;
+        height: 76% !important;
+        right: 10% !important;
+        top: 12% !important;
+    }
+
+    .hero::after {
+        display: none !important;
+    }
+
+    .hero-scroll {
+        display: none !important;
+    }
+
+    .marquee {
+        margin-top: 0 !important;
+    }
+
+    .marquee-track {
+        padding: 15px 0 !important;
+    }
+}
+
+/* ATLAS EARTH — SEAMLESS DARK-SPACE REFINEMENT */
+.hero-visual {
+    isolation: isolate !important;
+    overflow: visible !important;
+}
+
+.hero-visual::before {
+    content: "" !important;
+    position: absolute !important;
+    z-index: 0 !important;
+    display: block !important;
+    background-image: url("../images/hero-2.png") !important;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+    background-size: contain !important;
+    pointer-events: none !important;
+    opacity: 1 !important;
+    -webkit-mask-image: radial-gradient(
+        ellipse 70% 70% at 52% 50%,
+        #000 42%,
+        rgba(0,0,0,.96) 57%,
+        rgba(0,0,0,.68) 73%,
+        rgba(0,0,0,.22) 88%,
+        transparent 100%
+    ) !important;
+    mask-image: radial-gradient(
+        ellipse 70% 70% at 52% 50%,
+        #000 42%,
+        rgba(0,0,0,.96) 57%,
+        rgba(0,0,0,.68) 73%,
+        rgba(0,0,0,.22) 88%,
+        transparent 100%
+    ) !important;
+}
+
+.hero-visual::after {
+    content: "" !important;
+    position: absolute !important;
+    z-index: -1 !important;
+    width: 76% !important;
+    height: 76% !important;
+    top: 12% !important;
+    right: 10% !important;
+    border-radius: 50% !important;
+    background: radial-gradient(
+        ellipse,
+        rgba(0,140,255,.26) 0%,
+        rgba(0,90,210,.14) 43%,
+        rgba(0,40,100,.06) 67%,
+        transparent 100%
+    ) !important;
+    filter: blur(38px) !important;
+    pointer-events: none !important;
+}
+
+.hero-image-frame {
+    z-index: 1 !important;
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    animation: heroFloat 7s ease-in-out infinite !important;
+}
+
+.hero-image-frame::before,
+.hero-image-frame::after,
+.hero-image-glow,
+.hero-image-meta,
+.hero-earth {
+    display: none !important;
+}
+
+.floating-stat {
+    z-index: 3 !important;
+}
+
+@media (min-width: 1051px) {
+    .hero-visual {
+        min-height: 650px !important;
+    }
+
+    .hero-visual::before {
+        top: -9% !important;
+        right: -13% !important;
+        width: 124% !important;
+        height: 118% !important;
+    }
+}
+
+@media (min-width: 761px) and (max-width: 1050px) {
+    .hero-visual {
+        min-height: 480px !important;
+        margin-top: -8px !important;
+    }
+
+    .hero-visual::before {
+        top: -12% !important;
+        right: -5% !important;
+        width: 110% !important;
+        height: 124% !important;
+    }
+}
+
+@media (max-width: 760px) {
+    .hero {
+        padding-bottom: 12px !important;
+    }
+
+    .hero-layout {
+        gap: 0 !important;
+    }
+
+    .hero-visual {
+        width: calc(100% + 28px) !important;
+        height: auto !important;
+        min-height: 0 !important;
+        aspect-ratio: 1 / 1 !important;
+        margin: -8px -14px -8px !important;
+        padding: 0 !important;
+        overflow: hidden !important;
+        position: relative !important;
+    }
+
+    .hero-visual::before {
+        top: -7% !important;
+        right: -12% !important;
+        width: 124% !important;
+        height: 116% !important;
+        background-position: center center !important;
+        background-size: contain !important;
+        -webkit-mask-image: radial-gradient(
+            ellipse 73% 72% at 52% 49%,
+            #000 38%,
+            rgba(0,0,0,.96) 54%,
+            rgba(0,0,0,.65) 71%,
+            rgba(0,0,0,.2) 87%,
+            transparent 100%
+        ) !important;
+        mask-image: radial-gradient(
+            ellipse 73% 72% at 52% 49%,
+            #000 38%,
+            rgba(0,0,0,.96) 54%,
+            rgba(0,0,0,.65) 71%,
+            rgba(0,0,0,.2) 87%,
+            transparent 100%
+        ) !important;
+    }
+
+    .hero-visual::after {
+        width: 88% !important;
+        height: 88% !important;
+        top: 6% !important;
+        right: 5% !important;
+        filter: blur(32px) !important;
+    }
+
+    .hero-image-frame {
+        position: absolute !important;
+        inset: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        pointer-events: none !important;
+    }
+
+    .floating-stat {
+        padding: 8px 10px !important;
+        backdrop-filter: blur(12px) !important;
+    }
+
+    .stat-one {
+        left: 12px !important;
+        top: 19% !important;
+    }
+
+    .stat-two {
+        right: 12px !important;
+        bottom: 15% !important;
+    }
+
+    .marquee {
+        margin-top: 0 !important;
+    }
+
+    .marquee-track {
+        padding: 15px 0 !important;
+    }
+}
+
+/* ATLAS EARTH — LARGER HERO COMPOSITION */
+@media (min-width: 761px) {
+    .hero {
+        min-height: 790px !important;
+    }
+
+    .hero-layout {
+        grid-template-columns: .78fr 1.22fr !important;
+        gap: 12px !important;
+    }
+
+    .hero-visual {
+        min-height: 720px !important;
+        margin-left: -70px !important;
+        margin-right: -100px !important;
+        overflow: visible !important;
+    }
+
+    .hero-visual::before {
+        top: -14% !important;
+        right: -20% !important;
+        width: 145% !important;
+        height: 132% !important;
+        background-size: contain !important;
+        background-position: center center !important;
+    }
+}
+
+@media (max-width: 760px) {
+    .hero {
+        min-height: 0 !important;
+        padding-bottom: 8px !important;
+    }
+
+    .hero-layout {
+        grid-template-columns: minmax(0, 1fr) !important;
+        gap: 0 !important;
+    }
+
+    .hero-visual {
+        width: calc(100% + 48px) !important;
+        aspect-ratio: 1 / 1 !important;
+        min-height: 0 !important;
+        margin: -12px -24px -8px !important;
+        overflow: hidden !important;
+    }
+
+    .hero-visual::before {
+        top: -12% !important;
+        right: -17% !important;
+        width: 138% !important;
+        height: 130% !important;
+        background-size: contain !important;
+        background-position: center center !important;
+    }
+}
